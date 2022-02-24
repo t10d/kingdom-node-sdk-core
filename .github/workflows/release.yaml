@@ -17,9 +17,13 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@kingdom-sdk'
-      - run: yarn
-      - run: yarn build
-      - run: yarn tsc
-      - run: yarn publish --access public
+      - name: Install dependencies
+        run: yarn
+      - name: Build package
+        run: |
+          yarn build
+          yarn tsc
+      - name: Publish package
+        run: yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
