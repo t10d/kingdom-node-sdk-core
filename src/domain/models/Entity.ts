@@ -1,5 +1,6 @@
 import objectHash from 'object-hash';
 import EntityDiscardedError from '../exceptions/EntityDiscardedError';
+import Props from '../../interfaces/Props';
 
 /**
  * Represent the base element in the domain model, for entities and its aggregates.
@@ -51,10 +52,15 @@ export default abstract class Entity<T> {
   /**
    * Use this method in the toString() implementation.
    */
-  protected baseRepr(identifier: string, kwargs?: any): string {
+  protected baseRepr(identifier: string, props?: Props): string {
+    const pairs = Object.entries(props || {})
+      .map(item => `${item[0]}=${item[1]}`)
+      .join(', ');
+
     const prefix = this._isDiscarded ? '**DISCARDED** ' : '';
     const classname = this.constructor.name;
-    const extra = kwargs ? '()' : '';
+    const extra = props ? ` (${pairs})` : '';
+
     return `${prefix}<${classname} '${identifier}'${extra}>`;
   }
 

@@ -18,7 +18,7 @@ class MyEntity extends Entity<string> {
   }
 
   override toString(): string {
-    return this.baseRepr(this.id);
+    return this.baseRepr(this.id, { name: this._name });
   }
 
   public get name(): string {
@@ -55,6 +55,11 @@ test('Test entity hash and equality', () => {
   x.name = 'Dolor et';
   x.update();
   expect(x.equals(y)).toBe(false);
+});
+
+test('Test entity string representation', () => {
+  const x = createMyEntity('Loren Ipsum');
+  expect(typeof x.toString()).toEqual('string');
 });
 
 test('Test discard entity', () => {
