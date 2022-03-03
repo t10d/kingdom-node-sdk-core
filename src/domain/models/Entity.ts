@@ -5,8 +5,8 @@ import Props from '../../interfaces/Props';
 /**
  * Represent the base element in the domain model, for entities and its aggregates.
  */
-export default abstract class Entity<T> {
-  private _id: T;
+export default abstract class Entity<Id_T> {
+  private _id: Id_T;
 
   private _version: number;
 
@@ -19,14 +19,14 @@ export default abstract class Entity<T> {
   /**
    * Create an Entity.
    *
-   * @param {T} id - Unique identifier.
+   * @param {Id_T} id - Unique identifier.
    * @param {number} version - Value used to handle optmistic concurrency.
    * @param {boolean} is_discarded - Flag used by the no-deletion convention.
    * @param {Date} registered_at - Timestamp when the entity had created.
    * @param {Date} updated_at - Timestamp when the last modification had done.
    */
   public constructor(
-    id: T,
+    id: Id_T,
     version: number,
     isDiscarded: boolean,
     registeredAt: Date,
@@ -42,7 +42,7 @@ export default abstract class Entity<T> {
   /**
    * Call this method before every update action.
    */
-  private _check_not_discarded() {
+  protected check_not_discarded() {
     if (this._isDiscarded) {
       const classname = this.constructor.name;
       throw new EntityDiscardedError(`${classname} object is discarded`);
@@ -93,7 +93,7 @@ export default abstract class Entity<T> {
     return this.toHash() === other.toHash();
   }
 
-  public get id(): T {
+  public get id(): Id_T {
     return this._id;
   }
 
@@ -117,7 +117,7 @@ export default abstract class Entity<T> {
    * Remember to call this method before commiting a change.
    */
   public update() {
-    this._check_not_discarded();
+    this.check_not_discarded();
     this._update();
   }
 

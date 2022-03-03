@@ -4,10 +4,10 @@ import Props from '../../interfaces/Props';
 /**
  * Represent a transient value.
  */
-export default class ValueObject<T extends Props> {
-  public readonly props: T;
+export default class ValueObject<Props_T extends Props> {
+  public readonly props: Props_T;
 
-  public constructor(props: T) {
+  public constructor(props: Props_T) {
     this.props = Object.freeze(props);
   }
 
