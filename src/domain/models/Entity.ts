@@ -54,7 +54,7 @@ export default abstract class Entity<T> {
    */
   protected baseRepr(identifier: string, props?: Props): string {
     const pairs = Object.entries(props || {})
-      .map(item => `${item[0]}=${item[1]}`)
+      .map(item => `${item[0]}="${item[1]}"`)
       .join(', ');
 
     const prefix = this._isDiscarded ? '**DISCARDED** ' : '';
@@ -65,18 +65,6 @@ export default abstract class Entity<T> {
   }
 
   public abstract toString(): string;
-
-  /**
-   * Default equality operation.
-   *
-   * You shuold override it on every subclass.
-   */
-  public equals(other: any): boolean {
-    if (!(other instanceof Entity)) {
-      return false;
-    }
-    return this.toHash() === other.toHash();
-  }
 
   /**
    * Default hashing operation.
@@ -91,6 +79,18 @@ export default abstract class Entity<T> {
       _registeredAt: null,
       _updatedAt: null,
     });
+  }
+
+  /**
+   * Default equality operation.
+   *
+   * You shuold override it on every subclass.
+   */
+  public equals(other: any): boolean {
+    if (!(other instanceof Entity)) {
+      return false;
+    }
+    return this.toHash() === other.toHash();
   }
 
   public get id(): T {
