@@ -1,5 +1,5 @@
 import objectHash from 'object-hash';
-import EntityDiscardedError from './exceptions/EntityDiscardedError';
+import EntityDiscardedError from '../exceptions/EntityDiscardedError';
 
 /**
  * Represent the base element in the domain model, for entities and its aggregates.
@@ -60,6 +60,11 @@ export default abstract class Entity<T> {
 
   public abstract toString(): string;
 
+  /**
+   * Default equality operation.
+   *
+   * You shuold override it on every subclass.
+   */
   public equals(other: any): boolean {
     if (!(other instanceof Entity)) {
       return false;
@@ -67,6 +72,11 @@ export default abstract class Entity<T> {
     return this.toHash() === other.toHash();
   }
 
+  /**
+   * Default hashing operation.
+   *
+   * You shuold override it on every subclass.
+   */
   public toHash(): string {
     return objectHash({
       ...this,

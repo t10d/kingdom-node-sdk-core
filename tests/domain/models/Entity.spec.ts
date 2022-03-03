@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import Entity from '../../src/domain/Entity';
-import EntityDiscardedError from '../../src/domain/exceptions/EntityDiscardedError';
+import Entity from '../../../src/domain/models/Entity';
+import EntityDiscardedError from '../../../src/domain/exceptions/EntityDiscardedError';
 
 class MyEntity extends Entity<string> {
   private _name: string;
