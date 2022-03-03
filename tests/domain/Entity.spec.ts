@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import Entity from '../src/domain/Entity';
-import EntityDiscardedError from '../src/domain/exceptions/EntityDiscardedError';
+import Entity from '../../src/domain/Entity';
+import EntityDiscardedError from '../../src/domain/exceptions/EntityDiscardedError';
 
 class MyEntity extends Entity<string> {
   private _name: string;
@@ -40,21 +40,21 @@ test('Test entity hash and equality', () => {
   const y = createMyEntity('Loren Ipsum');
 
   // The distinct objects shouldn't be equal because the id are different.
-  expect(x.equals(y)).toEqual(false);
+  expect(x.equals(y)).toBe(false);
 
   // If enforced the same id, they'd be the same.
   x._id = y._id;
-  expect(x.equals(y)).toEqual(true);
+  expect(x.equals(y)).toBe(true);
 
   // As the control attributes don't matter, after update the timestamp the objects should keep
   // the equality.
   x.update();
-  expect(x.equals(y)).toEqual(true);
+  expect(x.equals(y)).toBe(true);
 
   // Change a custom attribute should reflect the equality.
   x.name = 'Dolor et';
   x.update();
-  expect(x.equals(y)).toEqual(false);
+  expect(x.equals(y)).toBe(false);
 });
 
 test('Test discard entity', () => {
