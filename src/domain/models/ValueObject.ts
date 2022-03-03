@@ -1,6 +1,9 @@
 import objectHash from 'object-hash';
 import Props from '../../interfaces/Props';
 
+/**
+ * Represent a transient value.
+ */
 export default class ValueObject<T extends Props> {
   public readonly props: T;
 
