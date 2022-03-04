@@ -2,28 +2,6 @@
 
 Transforming the model designed on [Python Kingdom SDK](https://github.com/t10d/kingdom-python-sdk) to a Node.js equivalent.
 
-## Step-by-step commands
-
-Commands used to build the boilerplate.
-
-```bash
-nvm install lts/gallium
-nvm current > .nvmrc
-yarn init -y
-yarn add -D typescript
-yarn tsc --init
-yarn add -D tsconfig-paths
-yarn add -D eslint
-yarn eslint --init
-yarn add -D jest
-yarn jest --init
-yarn add -D @types/jest
-yarn add -D @babel/cli @babel/core @babel/node @babel/preset-env @babel/preset-typescript
-yarn add -D husky
-yarn husky --init
-yarn add -D ts-node
-```
-
 ## Features
 
 See the [changelog](./CHANGELOG.md) to know all the features supported.
@@ -48,9 +26,15 @@ yarn add @kingdom-sdk/core
 - [**TS node**](https://www.npmjs.com/package/ts-node): TypeScript interactive shell (REPL).
 - [**TS config paths**](https://www.npmjs.com/package/tsconfig-paths): Simplify imports using an custom "@".
 - [**ESLint**](https://www.npmjs.com/package/eslint): Style and code enforcement.
+- [**Prettier**](https://www.npmjs.com/package/prettier): Style enforcement.
 - [**Babel**](https://www.npmjs.com/package/@babel/core): JS compiler.
 - [**Husky**](https://www.npmjs.com/package/husky): Git hooks utility.
 - [**Jest**](https://www.npmjs.com/package/jest): Testing framework.
+
+## Production Dependencies
+
+- [**UUID**](https://www.npmjs.com/package/uuid): UUID generator.
+- [**Object Hash**](https://www.npmjs.com/package/object-hash): Hashing utility.
 
 ## Adding a Git hook
 
