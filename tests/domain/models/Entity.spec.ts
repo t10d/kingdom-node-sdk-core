@@ -1,44 +1,16 @@
-import { v4 as uuidv4 } from 'uuid';
-import Entity from '../../../src/domain/models/Entity';
 import EntityDiscardedError from '../../../src/domain/exceptions/EntityDiscardedError';
+import { MyEntity, createMyEntity } from './fakes/MyEntity';
 
-class MyEntity extends Entity<string> {
-  private _name: string;
+// Globals
+let x: MyEntity;
+let y: MyEntity;
 
-  public constructor(
-    id: string,
-    version: number,
-    isDiscarded: boolean,
-    registeredAt: Date,
-    updatedAt: Date,
-    name: string,
-  ) {
-    super(id, version, isDiscarded, registeredAt, updatedAt);
-    this._name = name;
-  }
-
-  override toString(): string {
-    return this.baseRepr(this.id, { name: this._name });
-  }
-
-  public get name(): string {
-    return this._name;
-  }
-
-  public set name(value: string) {
-    this._name = value;
-  }
-}
-
-function createMyEntity(name: string): MyEntity {
-  const now = new Date();
-  return new MyEntity(uuidv4(), 0, false, now, now, name);
-}
+beforeEach(() => {
+  x = createMyEntity('Loren Ipsum');
+  y = createMyEntity('Loren Ipsum');
+});
 
 test('Test entity hash and equality', () => {
-  const x = createMyEntity('Loren Ipsum');
-  const y = createMyEntity('Loren Ipsum');
-
   // The distinct objects shouldn't be equal because the id are different.
   expect(x.equals(y)).toBe(false);
 
@@ -58,12 +30,10 @@ test('Test entity hash and equality', () => {
 });
 
 test('Test entity string representation', () => {
-  const x = createMyEntity('Loren Ipsum');
   expect(typeof x.toString()).toEqual('string');
 });
 
 test('Test discard entity', () => {
-  const x = createMyEntity('Loren Ipsum');
   const updatedAtBefore = x.updatedAt;
 
   // After discard, the timestamp should be updated.

@@ -1,6 +1,5 @@
 import KingdomError from '../../../src/domain/exceptions/KingdomError';
-
-class MyError extends KingdomError {}
+import { MyError } from './fakes/MyError';
 
 test('Test error throwing', () => {
   const { name } = MyError;

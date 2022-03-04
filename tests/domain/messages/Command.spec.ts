@@ -1,16 +1,10 @@
-import Command from '../../../src/domain/messages/Command';
+import { createMyCommand } from './fakes/MyCommand';
 
-class MyCommand extends Command<{
-  readonly raisedAt: Date;
-  readonly delay: number;
-  readonly value: string;
-}> {}
-
-test('Test Event raising', () => {
+test('Test command raising', () => {
   const now = new Date();
-  const x = new MyCommand({ raisedAt: now, delay: 0, value: '@1' });
-  const y = new MyCommand({ raisedAt: now, delay: 0, value: '@1' });
-  const z = new MyCommand({ raisedAt: now, delay: 0, value: '@2' });
+  const x = createMyCommand(now, 0, '@1');
+  const y = createMyCommand(now, 0, '@1');
+  const z = createMyCommand(now, 0, '@2');
 
   // Content set.
   expect(x.props.raisedAt).toEqual(now);
