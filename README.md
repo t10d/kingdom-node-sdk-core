@@ -1,6 +1,6 @@
 # 🏰 Kingdom SDK (core module)
 
-Transforming the model designed on [Python Kingdom SDK](https://github.com/t10d/kingdom-python-sdk) to a Node.js equivalent.
+Core module to design DDD applications in TypeScript.
 
 ## Features
 
