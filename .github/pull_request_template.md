@@ -1,3 +1,8 @@
+> 📢 Before opening the PR, make sure you already met the following requirements:
+> - Updated the [README](../README.md) file.
+> - Updated the [CHANGELOG](../CHANGELOG.md) file.
+---
+
 #### 📝 Description
 
 Write a short paragraph explaining the reasons for this PR.
