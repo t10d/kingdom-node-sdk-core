@@ -1,4 +1,4 @@
-# 🏰 Kingdom SDK (core module)
+# 🏰 Kingdom SDK: Core module
 
 Core module to design DDD applications in TypeScript.
 
