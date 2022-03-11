@@ -25,6 +25,10 @@
     "test": "jest",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
   },
+  "lint-staged": {
+    "**/*.{ts,js,json}": "yarn eslint",
+    "**/*.ts": "yarn tsc-files --pretty"
+  },
   "devDependencies": {
     "@babel/cli": "^7.17.3",
     "@babel/core": "^7.17.5",
@@ -45,6 +49,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
+    "lint-staged": "^12.3.5",
     "prettier": "^2.5.1",
     "ts-node": "^10.5.0",
     "ts-node-dev": "^1.1.8",
