@@ -1,6 +1,6 @@
 {
   "name": "@kingdom-sdk/core",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Core module to design DDD applications in TypeScript",
   "keywords": [
     "typescript",
