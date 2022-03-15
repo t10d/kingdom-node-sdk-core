@@ -2,10 +2,18 @@ import objectHash from 'object-hash';
 import { EntityDiscardedError } from '../exceptions/EntityDiscardedError';
 import { Props } from '../../interfaces/Props';
 
+export interface IEntity<Id_T> {
+  id: Id_T;
+  version: number;
+  isDiscarded: boolean;
+  registeredAt: Date;
+  updatedAt: Date;
+}
+
 /**
  * Represent the base element in the domain model, for entities and its aggregates.
  */
-export abstract class Entity<Id_T> {
+export abstract class Entity<Id_T> implements IEntity<Id_T> {
   private _id: Id_T;
 
   private _version: number;
@@ -95,6 +103,13 @@ export abstract class Entity<Id_T> {
 
   public get id(): Id_T {
     return this._id;
+  }
+
+  /**
+   * Required by ORM to auto generate the ID.
+   */
+  public set id(value: Id_T) {
+    this._id = value;
   }
 
   public get version(): number {

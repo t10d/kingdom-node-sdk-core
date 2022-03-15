@@ -1,10 +1,12 @@
 import { AnyEvent } from '../aliases';
-import { Entity } from './Entity';
+import { Entity, IEntity } from './Entity';
+
+export interface IAggregate<Id_T> extends IEntity<Id_T> {}
 
 /**
  * Base class for aggregates.
  */
-export abstract class Aggregate<Id_T> extends Entity<Id_T> {
+export abstract class Aggregate<Id_T> extends Entity<Id_T> implements IAggregate<Id_T> {
   private _events: AnyEvent[];
 
   public constructor(
