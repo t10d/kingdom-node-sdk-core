@@ -1,3 +1,9 @@
+> 📢 Before opening the PR, make sure you already met the following requirements:
+> - Update the [readme](../README.md) file.
+> - Update the [changelog](../CHANGELOG.md) file.
+> - Update the version on [package.json](../package.json) file.
+---
+
 #### 📝 Description
 
 Write a short paragraph explaining the reasons for this PR.

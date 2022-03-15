@@ -14,16 +14,6 @@ jobs:
   tests:
     runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: user
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: database
-        ports: [ "5432:5432" ]
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node
@@ -51,13 +41,6 @@ jobs:
 
       - name: Typing checks
         run: yarn check-types
-
-      - name: Prepare test database
-        run: |
-          PGPASSWORD=password psql -h localhost -U user -d database -tc "CREATE SCHEMA poc;"
-          # TODO: Generate migrations
-          # TODO: Migrate
-          # TODO: Seed data
 
       - name: Tests
         run: |
