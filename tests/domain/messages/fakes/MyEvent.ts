@@ -1,4 +1,4 @@
-import Event from '../../../../src/domain/messages/Event';
+import { Event } from '../../../../src/domain/messages/Event';
 
 export class MyEvent extends Event<
   number,

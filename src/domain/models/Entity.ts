@@ -1,11 +1,11 @@
 import objectHash from 'object-hash';
-import EntityDiscardedError from '../exceptions/EntityDiscardedError';
-import Props from '../../interfaces/Props';
+import { EntityDiscardedError } from '../exceptions/EntityDiscardedError';
+import { Props } from '../../interfaces/Props';
 
 /**
  * Represent the base element in the domain model, for entities and its aggregates.
  */
-export default abstract class Entity<Id_T> {
+export abstract class Entity<Id_T> {
   private _id: Id_T;
 
   private _version: number;

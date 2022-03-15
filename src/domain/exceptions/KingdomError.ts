@@ -9,7 +9,7 @@
  * @property {string} code - Standartized error code.
  * @property {string?} stack - Error Stack trace.
  */
-export default class KingdomError extends Error {
+export class KingdomError extends Error {
   public code: string;
 
   public constructor(message: string, code: string) {

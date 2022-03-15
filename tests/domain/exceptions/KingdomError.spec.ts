@@ -1,4 +1,4 @@
-import KingdomError from '../../../src/domain/exceptions/KingdomError';
+import { KingdomError } from '../../../src/domain/exceptions/KingdomError';
 import { MyError } from './fakes/MyError';
 
 test('Test error throwing', () => {

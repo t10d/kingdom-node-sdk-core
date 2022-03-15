@@ -27,7 +27,7 @@
   },
   "lint-staged": {
     "**/*.{ts,js,json}": "yarn eslint",
-    "**/*.ts": "yarn tsc-files --pretty"
+    "src/**/*.ts": "yarn tsc-files --pretty"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.3",

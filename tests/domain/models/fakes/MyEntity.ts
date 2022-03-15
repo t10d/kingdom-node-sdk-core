@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import Entity from '../../../../src/domain/models/Entity';
+import { Entity } from '../../../../src/domain/models/Entity';
 
 export class MyEntity extends Entity<string> {
   private _name: string;

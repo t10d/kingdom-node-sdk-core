@@ -1,4 +1,4 @@
-import Command from '../../../../src/domain/messages/Command';
+import { Command } from '../../../../src/domain/messages/Command';
 
 export class MyCommand extends Command<{
   readonly raisedAt: Date;

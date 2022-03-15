@@ -1,5 +1,5 @@
-import MessageProps from './MessageProps';
+import { MessageProps } from './MessageProps';
 
-export default interface EventProps<Id_T> extends MessageProps {
+export interface EventProps<Id_T> extends MessageProps {
   readonly raisedBy: Id_T;
 }

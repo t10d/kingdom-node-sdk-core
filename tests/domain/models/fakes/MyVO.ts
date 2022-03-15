@@ -1,4 +1,4 @@
-import ValueObject from '../../../../src/domain/models/ValueObject';
+import { ValueObject } from '../../../../src/domain/models/ValueObject';
 
 export class MyVO extends ValueObject<{
   name: string;

@@ -1,4 +1,4 @@
-import EntityDiscardedError from '../../../src/domain/exceptions/EntityDiscardedError';
+import { EntityDiscardedError } from '../../../src/domain/exceptions/EntityDiscardedError';
 import { MyEntity, createMyEntity } from './fakes/MyEntity';
 
 // Globals

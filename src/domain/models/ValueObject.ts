@@ -1,10 +1,10 @@
 import objectHash from 'object-hash';
-import Props from '../../interfaces/Props';
+import { Props } from '../../interfaces/Props';
 
 /**
  * Represent a transient value.
  */
-export default class ValueObject<Props_T extends Props> {
+export class ValueObject<Props_T extends Props> {
   public readonly props: Props_T;
 
   public constructor(props: Props_T) {

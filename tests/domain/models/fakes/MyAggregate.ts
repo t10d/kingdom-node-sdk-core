@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { MyEntity } from './MyEntity';
-import Aggregate from '../../../../src/domain/models/Aggregate';
+import { Aggregate } from '../../../../src/domain/models/Aggregate';
 
 export class MyAggregate extends Aggregate<string> {
   private _reference: MyEntity;

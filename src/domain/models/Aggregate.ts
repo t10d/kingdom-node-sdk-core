@@ -1,10 +1,10 @@
 import { AnyEvent } from '../aliases';
-import Entity from './Entity';
+import { Entity } from './Entity';
 
 /**
  * Base class for aggregates.
  */
-export default abstract class Aggregate<Id_T> extends Entity<Id_T> {
+export abstract class Aggregate<Id_T> extends Entity<Id_T> {
   private _events: AnyEvent[];
 
   public constructor(

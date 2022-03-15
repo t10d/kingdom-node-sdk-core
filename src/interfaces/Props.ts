@@ -1,3 +1,3 @@
-export default interface Props {
+export interface Props {
   [index: string]: any;
 }
