@@ -20,7 +20,7 @@ check-types:
 	@echo "✅ type checking done."
 
 check-style:
-	yarn check-style
+	yarn check-style --fix
 	@echo "✅ style checking done."
 
 clean:
