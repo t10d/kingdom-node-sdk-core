@@ -3,11 +3,11 @@ import { EntityDiscardedError } from '../exceptions/EntityDiscardedError';
 import { Props } from '../../interfaces/Props';
 
 export interface IEntity<Id_T> {
-  id: Id_T;
-  version: number;
-  isDiscarded: boolean;
-  registeredAt: Date;
-  updatedAt: Date;
+  id?: Id_T;
+  version?: number;
+  isDiscarded?: boolean;
+  registeredAt?: Date;
+  updatedAt?: Date;
 }
 
 /**
