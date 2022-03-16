@@ -101,9 +101,9 @@ export abstract class Entity<Id_T> implements IEntity<Id_T> {
     return this.toHash() === other.toHash();
   }
 
-  // public get id(): Id_T {
-  //   return this._id;
-  // }
+  public get id(): Id_T {
+    return this._id;
+  }
 
   /**
    * Required by ORM to auto generate the ID.
