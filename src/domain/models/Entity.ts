@@ -128,6 +128,17 @@ export abstract class Entity<Id_T> implements IEntity<Id_T> {
     return this._updatedAt;
   }
 
+  public get props(): Props {
+    const objectProps = {};
+    Object.keys(this).forEach(key => {
+      if (key.charAt(0) === '_') {
+        /* @ts-ignore */
+        objectProps[key.substring(1)] = this[key];
+      }
+    });
+    return Object.freeze(objectProps);
+  }
+
   /**
    * Remember to call this method before commiting a change.
    */
